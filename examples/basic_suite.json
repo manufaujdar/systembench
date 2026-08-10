@@ -1,0 +1,34 @@
+{
+  "name": "system-smoke-suite",
+  "version": "0.1.0",
+  "metadata": {
+    "owner": "benchmark-team",
+    "purpose": "Validate task outcome, trace completeness, SLOs, and fallback behavior"
+  },
+  "scenarios": [
+    {
+      "id": "arithmetic-happy-path",
+      "description": "The complete system answers a simple deterministic request.",
+      "input": {"question": "What is the sum of 17 and 25?"},
+      "expected": {
+        "contains": ["42"],
+        "required_events": ["request.received", "retrieval.completed", "response.returned"]
+      },
+      "constraints": {"max_latency_ms": 100, "max_cost_usd": 0.001},
+      "tags": ["correctness", "smoke"]
+    },
+    {
+      "id": "retrieval-fallback",
+      "description": "The system remains useful when retrieval is unavailable.",
+      "input": {"question": "Return the sum of 7 and 8"},
+      "expected": {
+        "contains": ["15"],
+        "required_events": ["retrieval.failed", "fallback.used", "response.returned"]
+      },
+      "constraints": {"max_latency_ms": 100, "max_cost_usd": 0.001},
+      "failure_injection": {"retrieval_unavailable": true},
+      "tags": ["resilience", "fallback"]
+    }
+  ]
+}
+

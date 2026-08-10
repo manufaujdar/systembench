@@ -1,0 +1,30 @@
+SYSTEMBENCH — HUMAN START PAGE
+==============================
+
+Purpose: evaluate complete AI systems, including models, prompts, retrieval,
+tools, policies, fallbacks, infrastructure, and operators.
+
+READ FIRST
+----------
+
+1. README.md                 Overview and project layout
+2. docs/DESIGN.md            Evaluation principles and metric definitions
+3. examples/                 Small runnable examples
+
+HUMAN WORK
+----------
+
+Human-readable methodology belongs in docs/. Scenario inputs belong in examples/
+or a clearly named suite area. Generated reports belong in runs/ and should not be
+treated as source material. Source code and tests are implementation details.
+
+Results must include evidence, uncertainty, failures, and resource use—not only a
+single score.
+
+AI-agent instructions and memory are in AGENTS.md and .ai/.
+
+STARTUP TEAM
+------------
+
+For evaluation idea-to-release work, ask the agent to use the roster and gears
+in .ai/TEAM.md. Methodology, evidence, and validation rules still apply.

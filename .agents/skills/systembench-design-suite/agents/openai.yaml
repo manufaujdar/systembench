@@ -1,0 +1,4 @@
+interface:
+  display_name: "SystemBench Suite Design"
+  short_description: "Design valid whole-system benchmark suites"
+  default_prompt: "Use $systembench-design-suite to design a representative and reproducible evaluation suite."

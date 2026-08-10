@@ -1,0 +1,4 @@
+interface:
+  display_name: "SystemBench Validity Audit"
+  short_description: "Audit benchmark validity and comparison fairness"
+  default_prompt: "Use $systembench-audit-validity to independently audit this benchmark design or result."
