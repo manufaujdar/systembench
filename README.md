@@ -8,9 +8,11 @@ The framework is deliberately provider-neutral and dependency-light. It includes
 runnable offline example, repeat trials, structured traces, composable evaluators, aggregate
 reliability metrics, JSON reports, and tests.
 
-Run `systembench-web` after installation and open `http://127.0.0.1:8765` for a
-small browser lab. It exercises the bundled synthetic offline system without a model, API key,
-database, network dependency, or persistence; production benchmark suites still belong in the CLI.
+Run `systembench-web` after installation and open `http://127.0.0.1:8765` for the adaptive
+evaluation workbench. It critiques proposed benchmarks for LLMs, agents, frameworks, harnesses,
+loops, and complete systems; generates observable human-interaction probes; and adapts a local
+session after pass, partial, or failed outcomes. It uses no model, API key, database, network
+dependency, or persistence. Production benchmark execution still belongs behind a reviewed adapter.
 
 > **Research boundary:** SystemBench is not a certification service. A passing score or regression
 > gate is evidence only for the frozen, declared protocol. It does not prove safety, fairness,
@@ -27,6 +29,24 @@ database, network dependency, or persistence; production benchmark suites still 
 | Safety | Did policies hold under adversarial or ambiguous input? |
 | Performance | Are latency, cost, and resource use within an SLO? |
 | Operability | Can failures be observed, diagnosed, retried, and recovered? |
+| Human interaction | Can people clarify, correct, interrupt, recover, and complete goals without excessive effort? |
+
+## Adaptive interaction workbench
+
+The browser workbench addresses common weaknesses in static benchmarks:
+
+- model-only grading that excludes tools, retrieval, policies, infrastructure, and operators;
+- one-shot clean-room prompts that omit clarification, interruption, correction, and recovery;
+- aggregate scores that hide failure counts, worst-user slices, tail latency, and unsafe actions;
+- unmatched tokens, tools, retries, time, or human assistance;
+- circular model judges, public-task contamination, and deployment conditions that disappear.
+
+The workbench produces a protocol-coverage assessment, construct map, evidence gaps, matched-
+baseline guidance, statistical plan, and three target-specific probes. During an adaptive session,
+a pass advances to a different construct, a partial result triggers a human-repair probe, and a
+failure triggers a lower-complexity diagnostic replay. This policy is deterministic and visible.
+See [docs/INTERACTION_BENCHMARK.md](docs/INTERACTION_BENCHMARK.md) and
+[docs/SYSTEM_ARCHITECTURE.md](docs/SYSTEM_ARCHITECTURE.md).
 
 ## Quick start
 

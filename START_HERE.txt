@@ -12,6 +12,8 @@ READ FIRST
 3. VALIDATION_PROTOCOL.md    How to establish whether a benchmark is decision-ready
 4. DEPLOYMENT_BOUNDARIES.md  What SystemBench results must not be claimed to prove
 5. examples/                 Small runnable synthetic examples
+6. docs/INTERACTION_BENCHMARK.md  Adaptive human–system construct and protocol map
+7. docs/SYSTEM_ARCHITECTURE.md   Browser, API, engine, harness, and trust boundaries
 
 HUMAN WORK
 ----------

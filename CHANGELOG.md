@@ -2,7 +2,16 @@
 
 ## Unreleased
 
-- No unreleased changes.
+- Added a responsive adaptive human–system benchmark workbench for LLMs, agents,
+  frameworks, harnesses, feedback loops, and complete systems.
+- Added deterministic benchmark-design diagnosis, construct coverage, target-specific
+  interaction probes, adaptive repair/diagnostic routing, integrity-sealed session state,
+  and human-effort/calibration metrics.
+- Split browser assets into packaged HTML, CSS, and JavaScript with a strict self-only
+  content security policy and expanded the local JSON API.
+- Documented the human-interaction construct map, matched baselines, budgets, evidence,
+  statistical plan, system architecture, and validity threats.
+- Expanded automated coverage from 41 to 56 tests.
 
 ## 0.1.1 - 2026-08-10
 

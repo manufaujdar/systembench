@@ -12,6 +12,12 @@
   compliance, human-equivalence, or deployment proof.
 - 2026-08-10: public evaluation work should use benchmark, system/model, and
   scenario-dataset cards plus an independent validity review.
+- 2026-08-10: realistic interaction evaluation includes clarification,
+  correction, interruption, human effort, handoff, recovery, calibration, and
+  long-horizon stability across the complete system path.
+- 2026-08-10: adaptive routing is deterministic—pass advances constructs,
+  partial triggers human repair, failure triggers diagnostic replay—and must not
+  alter a frozen comparative protocol after candidate results are visible.
 
 ## Explicit project preferences
 

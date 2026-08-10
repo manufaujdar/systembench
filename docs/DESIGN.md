@@ -91,6 +91,11 @@ token usage, and cost. Never place secrets or raw sensitive user data in benchma
 - privacy, authorization, and tenant-boundary tests;
 - operator diagnostics and incident recovery.
 
+For human-facing systems, explicitly measure clarification, correction, interruption, human
+effort, handoff, and recovery. The adaptive policy and target-specific starting probes are
+documented in [INTERACTION_BENCHMARK.md](INTERACTION_BENCHMARK.md). Adaptation may diagnose a
+session, but it must not silently change a frozen comparative protocol after results are visible.
+
 ## 7. Validity safeguards
 
 - Sample tasks from real workflows using privacy-safe transformation.

@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Design adaptive, realistic benchmarks for complete AI systems and human interaction.">
+  <title>SystemBench · Adaptive evaluation workbench</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to workbench</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="SystemBench home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>SystemBench<small>Human–system evaluation</small></span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#workbench">Workbench</a>
+        <a href="#problems">Why benchmarks fail</a>
+        <a href="#architecture">System design</a>
+        <span class="local-state">Local · No external model</span>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">Adaptive evaluation workbench</p>
+        <h1>Benchmark behavior,<br><span>not demos.</span></h1>
+        <p class="hero-lede">Design evidence-first evaluations for LLMs, agents, frameworks, harnesses, feedback loops, and complete AI systems—inside the messy human interactions where reliability actually matters.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#workbench">Assess a benchmark</a>
+          <a class="button text-button" href="#problems">See the failure modes <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <div class="hero-model" aria-label="Evaluation loop: human goal, system behavior, observed outcome, adaptive probe">
+        <div class="orbit orbit-one"><span>Human goal</span></div>
+        <div class="orbit orbit-two"><span>System behavior</span></div>
+        <div class="orbit orbit-three"><span>Observed outcome</span></div>
+        <div class="orbit-core">Next<br>probe</div>
+      </div>
+    </section>
+
+    <section class="boundary" aria-label="Research boundary">
+      <strong>This workbench designs and critiques evaluation protocols.</strong>
+      <span>It does not test a live external system, certify safety, or turn a coverage score into proof of quality. No model, account, API key, or database is used.</span>
+    </section>
+
+    <section class="section" id="workbench">
+      <div class="section-heading">
+        <div><p class="eyebrow">01 · Design review</p><h2>Describe what you need to trust.</h2></div>
+        <p>Start with the decision and real operating context. The workbench finds missing evidence and produces a target-specific adaptive protocol.</p>
+      </div>
+
+      <div class="workbench-grid">
+        <form class="design-form panel" id="design-form">
+          <div class="field-row">
+            <div class="field">
+              <label for="target-type">Evaluation target</label>
+              <select id="target-type" name="target_type" required>
+                <option value="system">Complete AI system</option>
+                <option value="agent">AI agent</option>
+                <option value="llm">LLM</option>
+                <option value="framework">Agent/model framework</option>
+                <option value="harness">Evaluation harness</option>
+                <option value="loop">Feedback or training loop</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="target-name">Name or release</label>
+              <input id="target-name" name="name" required maxlength="120" value="Support agent candidate v2">
+            </div>
+          </div>
+          <div class="field">
+            <label for="description">What does the target actually do?</label>
+            <textarea id="description" name="description" required maxlength="1200" rows="3">Answers account questions, retrieves policy, and can prepare refunds for human approval.</textarea>
+          </div>
+          <div class="field">
+            <label for="decision">What decision should the evaluation support?</label>
+            <textarea id="decision" name="decision" required maxlength="500" rows="2">Decide whether the candidate can enter a supervised pilot without increasing incorrect refunds or user effort.</textarea>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="users">People and goals</label>
+              <input id="users" name="users" maxlength="400" value="Customers with incomplete information; support reviewers">
+            </div>
+            <div class="field">
+              <label for="environment">Operating conditions</label>
+              <input id="environment" name="environment" maxlength="400" value="Multi-turn chat, policy retrieval, refund tool, peak-hour rate limits">
+            </div>
+          </div>
+          <fieldset>
+            <legend>What does the current benchmark include?</legend>
+            <p class="field-help">Select only evidence that already exists. Single-turn tasks add no realism credit by themselves.</p>
+            <div class="check-grid" id="method-list">
+              <label><input type="checkbox" name="methods" value="single_turn" checked><span>Single-turn tasks</span></label>
+              <label><input type="checkbox" name="methods" value="repeated_trials"><span>Repeated trials</span></label>
+              <label><input type="checkbox" name="methods" value="human_review"><span>Blinded human review</span></label>
+              <label><input type="checkbox" name="methods" value="failure_injection"><span>Failure injection</span></label>
+              <label><input type="checkbox" name="methods" value="budget_matching"><span>Matched budgets</span></label>
+              <label><input type="checkbox" name="methods" value="trace_capture"><span>End-to-end traces</span></label>
+              <label><input type="checkbox" name="methods" value="recovery_testing"><span>Repair and recovery</span></label>
+              <label><input type="checkbox" name="methods" value="long_horizon"><span>Long-horizon interaction</span></label>
+              <label><input type="checkbox" name="methods" value="privacy_testing"><span>Privacy and authorization</span></label>
+              <label><input type="checkbox" name="methods" value="slice_analysis"><span>User/context slices</span></label>
+            </div>
+          </fieldset>
+          <div class="form-actions">
+            <button class="button primary" id="analyze-button" type="submit">Analyze benchmark design</button>
+            <button class="button secondary" id="complete-example" type="button">Load stronger example</button>
+          </div>
+          <p class="form-status" id="form-status" role="status">Ready. Inputs stay in this browser session.</p>
+        </form>
+
+        <aside class="score-panel panel" aria-labelledby="score-title">
+          <div class="score-topline"><p class="eyebrow">Protocol realism</p><span class="readiness" id="readiness">Not assessed</span></div>
+          <div class="score-ring" id="score-ring" style="--score:0"><strong id="realism-score">—</strong><span>/ 100</span></div>
+          <h3 id="score-title">Coverage, not target quality</h3>
+          <p id="score-summary">Complete the assessment to see which claims your current protocol can and cannot support.</p>
+          <div class="coverage-list" id="coverage-list" aria-live="polite"></div>
+        </aside>
+      </div>
+
+      <div class="analysis-results" id="analysis-results" hidden>
+        <div class="result-heading">
+          <div><p class="eyebrow">Design diagnosis</p><h3>Evidence gaps and realistic probes</h3></div>
+          <div class="result-actions">
+            <button class="button secondary" id="download-analysis" type="button">Download protocol</button>
+            <button class="button text-button" id="copy-analysis" type="button">Copy review brief</button>
+          </div>
+        </div>
+        <div class="result-grid">
+          <section class="panel"><h4>Highest-priority gaps</h4><div id="gap-list" class="finding-list"></div></section>
+          <section class="panel"><h4>Recommended interaction probes</h4><div id="probe-list" class="probe-list"></div></section>
+        </div>
+        <div class="protocol-strip">
+          <div><span>Matched baseline</span><p id="baseline-plan"></p></div>
+          <div><span>Statistical plan</span><p id="statistical-plan"></p></div>
+          <div><span>Protocol fingerprint</span><code id="protocol-fingerprint"></code></div>
+        </div>
+        <button class="button primary" id="start-session" type="button">Start adaptive interaction session</button>
+      </div>
+    </section>
+
+    <section class="section session-section" id="session" hidden>
+      <div class="section-heading">
+        <div><p class="eyebrow">02 · Adaptive session</p><h2>Let observed behavior choose the next probe.</h2></div>
+        <p>A pass advances to a new construct. A partial outcome triggers human repair. A failure triggers a simpler diagnostic replay.</p>
+      </div>
+      <div class="session-grid">
+        <article class="probe-card panel" id="current-probe">
+          <div class="probe-meta"><span id="probe-dimension">Dimension</span><code id="probe-id"></code></div>
+          <h3 id="probe-title"></h3>
+          <p class="probe-goal" id="probe-goal"></p>
+          <dl>
+            <div><dt>Setup</dt><dd id="probe-setup"></dd></div>
+            <div><dt>Perturbation</dt><dd id="probe-perturbation"></dd></div>
+            <div><dt>Observable success</dt><dd id="probe-success"></dd></div>
+            <div><dt>Failure signal</dt><dd id="probe-failure"></dd></div>
+            <div><dt>Evidence to retain</dt><dd id="probe-evidence"></dd></div>
+          </dl>
+        </article>
+        <form class="observation-form panel" id="observation-form">
+          <h3>Record what happened</h3>
+          <p class="field-help">Score the observable outcome. Confidence is the system's expressed confidence, not ground truth.</p>
+          <div class="field"><label for="outcome">Outcome</label><select id="outcome" required><option value="passed">Passed</option><option value="partial">Partial</option><option value="failed">Failed</option></select></div>
+          <div class="field"><label for="human-effort">Human effort <output id="effort-output">3</output>/5</label><input id="human-effort" type="range" min="1" max="5" value="3"></div>
+          <div class="field"><label for="confidence">System confidence <output id="confidence-output">70%</output></label><input id="confidence" type="range" min="0" max="100" value="70"></div>
+          <div class="field"><label for="notes">Evidence note</label><textarea id="notes" rows="3" maxlength="800" placeholder="What observable behavior supports this rating?"></textarea></div>
+          <button class="button primary" id="record-observation" type="submit">Record and adapt</button>
+          <p class="form-status" id="session-status" role="status">No observation recorded.</p>
+        </form>
+      </div>
+      <div class="metric-row" aria-label="Adaptive session metrics">
+        <div><strong id="metric-observations">0</strong><span>Observations</span></div>
+        <div><strong id="metric-success">—</strong><span>Task success</span></div>
+        <div><strong id="metric-ease">—</strong><span>Human ease</span></div>
+        <div><strong id="metric-calibration">—</strong><span>Calibration gap</span></div>
+      </div>
+      <div class="history panel"><h3>Session evidence</h3><p id="adaptation-note" class="adaptation-note">The next probe will respond to the first observation.</p><div id="history-list"></div></div>
+    </section>
+
+    <section class="section problems-section" id="problems">
+      <div class="section-heading">
+        <div><p class="eyebrow">03 · Failure modes</p><h2>Why most benchmarks feel convincing—and fail in use.</h2></div>
+        <p>The central problem is not that benchmarks are too hard or too easy. It is that they often measure a clean artifact while deployment is a changing relationship between people and a system.</p>
+      </div>
+      <div class="problem-grid" id="problem-grid">
+        <article><span>01</span><h3>Static tasks miss adaptation</h3><p>One-shot prompts do not test clarification, learning, interruption, correction, or recovery.</p></article>
+        <article><span>02</span><h3>The model is graded, not the system</h3><p>Interfaces, tools, policies, retrieval, latency, retries, and operators disappear from the score.</p></article>
+        <article><span>03</span><h3>Averages hide severe failures</h3><p>A leaderboard number conceals variance, unsafe actions, tail latency, and worst-user slices.</p></article>
+        <article><span>04</span><h3>Resources are not matched</h3><p>Tokens, tools, human help, retries, and time differ while the result is presented as capability.</p></article>
+        <article><span>05</span><h3>Judges can be circular</h3><p>Automated evaluators may reward familiar providers, styles, verbosity, or their own preferences.</p></article>
+        <article><span>06</span><h3>Clean inputs are not human work</h3><p>Real goals are incomplete, contradictory, multilingual, time-pressured, and embedded in prior state.</p></article>
+        <article><span>07</span><h3>Public tasks invite gaming</h3><p>Known examples and rubrics can be memorized, leaked, or directly optimized.</p></article>
+        <article><span>08</span><h3>Operations are removed</h3><p>Rate limits, stale data, malformed tools, partial outages, concurrency, and drift vanish.</p></article>
+      </div>
+    </section>
+
+    <section class="section architecture-section" id="architecture">
+      <div class="section-heading">
+        <div><p class="eyebrow">04 · System design</p><h2>Measure the whole causal path.</h2></div>
+        <p>Every layer can change the user outcome. The trace should let reviewers localize failure without pretending internal reasoning is evidence.</p>
+      </div>
+      <div class="system-map" role="img" aria-label="Human goal flows through interface, orchestration, model and knowledge, tools and policy, infrastructure, observable outcome, then adaptive evaluation feeds the next scenario">
+        <div class="map-node human"><span>01</span><strong>Human</strong><small>goal · context · correction</small></div>
+        <i aria-hidden="true">→</i>
+        <div class="map-node"><span>02</span><strong>Interface</strong><small>input · state · accessibility</small></div>
+        <i aria-hidden="true">→</i>
+        <div class="map-node"><span>03</span><strong>Orchestration</strong><small>routing · memory · retries</small></div>
+        <i aria-hidden="true">→</i>
+        <div class="map-stack"><div class="map-node"><span>04a</span><strong>Models + knowledge</strong><small>LLMs · retrieval · prompts</small></div><div class="map-node"><span>04b</span><strong>Tools + policy</strong><small>actions · permissions · fallback</small></div></div>
+        <i aria-hidden="true">→</i>
+        <div class="map-node"><span>05</span><strong>Infrastructure</strong><small>latency · limits · failures</small></div>
+        <i aria-hidden="true">→</i>
+        <div class="map-node outcome"><span>06</span><strong>Outcome</strong><small>state change · effort · harm</small></div>
+      </div>
+      <div class="adaptive-loop"><span>Observed evidence</span><i aria-hidden="true">→</i><span>Evaluator + human review</span><i aria-hidden="true">→</i><span>Adaptive next probe</span><i aria-hidden="true">↺</i></div>
+      <div class="principle-grid">
+        <article><h3>Freeze before comparison</h3><p>Version the target, scenarios, budgets, evaluators, exclusions, trials, and seeds before viewing candidate results.</p></article>
+        <article><h3>Keep humans in the measurement</h3><p>Track effort, corrections, disagreement, handoffs, and whether users can recover—not just answer preference.</p></article>
+        <article><h3>Fail closed</h3><p>Missing trials, malformed evidence, unmatched resources, or broken integrity should block a claim instead of creating a score.</p></article>
+        <article><h3>Report distributions</h3><p>Preserve every failure and show uncertainty, Reliability@N, tail behavior, and worst relevant slices.</p></article>
+      </div>
+    </section>
+
+    <section class="demo-strip" id="offline-demo">
+      <div><p class="eyebrow">Harness smoke test</p><h2>Run the bundled offline system.</h2><p>This verifies that the runner, traces, fallback checks, aggregation, and strict report path work. It is deliberately not a model benchmark.</p></div>
+      <div class="demo-controls"><label for="trials">Trials per scenario</label><input id="trials" type="number" min="1" max="10" value="2"><button class="button secondary" id="run-demo" type="button">Run synthetic suite</button><pre id="demo-result" aria-live="polite">Ready. Nothing is stored.</pre></div>
+    </section>
+  </main>
+
+  <footer>
+    <div><strong>SystemBench</strong><span>Research software for evidence-first AI-system evaluation.</span></div>
+    <div><a href="https://github.com/manufaujdar/systembench">Source</a><a href="#architecture">Method</a><span>Apache-2.0 · Local-first</span></div>
+  </footer>
+  <script src="/app.js" defer></script>
+</body>
+</html>
