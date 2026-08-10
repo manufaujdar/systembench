@@ -8,9 +8,12 @@ Evaluate complete AI systems using repeatable scenarios, structured traces, evid
 
 - Human entry: `START_HERE.txt`
 - Methodology: `docs/DESIGN.md`
+- Validation and claims: `VALIDATION_PROTOCOL.md`, `DEPLOYMENT_BOUNDARIES.md`
+- Governance/provenance: `GOVERNANCE.md`, `PROVENANCE.md`
 - Implementation: `src/systembench/`
 - Runnable examples: `examples/`
 - Verification: `tests/`
+- Deterministic public-readiness audit: `tools/repository_agent/`
 - Generated reports: `runs/` (ignored)
 
 ## Invariants

@@ -9,7 +9,9 @@ READ FIRST
 
 1. README.md                 Overview and project layout
 2. docs/DESIGN.md            Evaluation principles and metric definitions
-3. examples/                 Small runnable examples
+3. VALIDATION_PROTOCOL.md    How to establish whether a benchmark is decision-ready
+4. DEPLOYMENT_BOUNDARIES.md  What SystemBench results must not be claimed to prove
+5. examples/                 Small runnable synthetic examples
 
 HUMAN WORK
 ----------
@@ -20,6 +22,15 @@ treated as source material. Source code and tests are implementation details.
 
 Results must include evidence, uncertainty, failures, and resource use—not only a
 single score.
+
+PUBLIC PROJECT
+--------------
+
+Apache-2.0 terms are in LICENSE and NOTICE. Governance, security, contribution,
+provenance, citation, and benchmark/model/dataset card records are at the project
+root. Run the deterministic public-readiness audit with:
+
+python tools/repository_agent/repository_agent.py audit
 
 AI-agent instructions and memory are in AGENTS.md and .ai/.
 

@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use SystemBench in research, please cite this repository."
+title: "SystemBench"
+type: software
+authors:
+  - family-names: Faujdar
+    given-names: Manu
+    affiliation: Independent research software project
+repository-code: "https://github.com/manufaujdar/systembench"
+license: Apache-2.0
+version: 0.1.1
+date-released: 2026-08-10
+abstract: >-
+  Provider-neutral research framework for evaluating complete AI systems with
+  repeated trials, observable evidence, matched budgets, uncertainty estimates,
+  integrity manifests, and explicit benchmark-validity boundaries.

@@ -2,6 +2,19 @@
 
 ## Unreleased
 
+- No unreleased changes.
+
+## 0.1.1 - 2026-08-10
+
+- Added Apache-2.0 licensing, notice, citation metadata, governance, conduct,
+  provenance, deployment-boundary, and benchmark-validation records.
+- Added benchmark, evaluated-system/model, and scenario-dataset card templates.
+- Added public contribution templates and monthly dependency update configuration.
+- Added a deterministic local repository review agent, supervised agent-selection
+  matrix, bounded review prompt, and automated tests.
+- Redesigned the offline browser lab with clearer method, local-only, evidence,
+  uncertainty, accessibility, responsive, download, and copy-brief surfaces.
+- Added syntax, typing, repository-audit, and browser-boundary checks to CI.
 - Added a dependency-free local browser lab for the offline demo benchmark.
 - Fixed optional latency and cost evaluators so an undeclared SLO emits an explicit
   finite result instead of non-standard JSON infinity.

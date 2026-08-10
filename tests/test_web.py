@@ -12,6 +12,11 @@ def test_web_console_runs_offline_demo() -> None:
     assert report["summary"]["trial_count"] == 4
     assert report["summary"]["pass_rate"] == 1.0
     assert "No model, account, API key, or database" in CONSOLE_HTML
+    assert "Research demonstration" in CONSOLE_HTML
+    assert "Local only" in CONSOLE_HTML
+    assert "Copy review brief" in CONSOLE_HTML
+    assert "localStorage" not in CONSOLE_HTML
+    assert '@media(max-width:720px)' in CONSOLE_HTML
 
 
 def test_default_evaluators_emit_strict_json_without_optional_slos() -> None:

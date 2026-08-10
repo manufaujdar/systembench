@@ -1,0 +1,9 @@
+SystemBench
+
+Copyright 2026 Manu Faujdar.
+
+This repository contains original research-software code and synthetic examples.
+No production prompts, private evaluation sets, user records, credentials, model
+weights, or vendor SDK binaries are included. Third-party systems, models, data,
+and evaluators used through extension interfaces retain their own licenses and
+terms; those integrations are not licensed by this repository.
