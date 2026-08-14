@@ -1,5 +1,8 @@
 # SystemBench
 
+Read the [documentation map](docs/README.md) before changing a benchmark
+protocol, evaluator, baseline, or release claim.
+
 SystemBench is a benchmark framework for evaluating **complete AI systems**, not isolated
 model responses. It treats prompts, models, retrieval, tools, policies, orchestration,
 fallbacks, infrastructure, and operators as one system whose behavior must be measured.
@@ -139,4 +142,6 @@ controls, and independent validation for your target domain.
 
 SystemBench is available under the [Apache License 2.0](LICENSE). See
 [GOVERNANCE.md](GOVERNANCE.md), [CONTRIBUTING.md](CONTRIBUTING.md), and
-[SECURITY.md](SECURITY.md) before public or sensitive work.
+[SECURITY.md](SECURITY.md) before public or sensitive work. The source-only
+privacy and deployment boundary is in
+[PRIVACY_AND_DATA_BOUNDARY.md](PRIVACY_AND_DATA_BOUNDARY.md).

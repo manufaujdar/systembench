@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Added `PRIVACY_AND_DATA_BOUNDARY.md` to distinguish the Apache-2.0 source license from operator privacy, data-use, and hosted-service obligations.
 - Added a responsive adaptive human–system benchmark workbench for LLMs, agents,
   frameworks, harnesses, feedback loops, and complete systems.
 - Added deterministic benchmark-design diagnosis, construct coverage, target-specific
