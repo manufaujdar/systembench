@@ -91,6 +91,11 @@ token usage, and cost. Never place secrets or raw sensitive user data in benchma
 - privacy, authorization, and tenant-boundary tests;
 - operator diagnostics and incident recovery.
 
+For human-facing systems, explicitly measure clarification, correction, interruption, human
+effort, handoff, and recovery. The adaptive policy and target-specific starting probes are
+documented in [INTERACTION_BENCHMARK.md](INTERACTION_BENCHMARK.md). Adaptation may diagnose a
+session, but it must not silently change a frozen comparative protocol after results are visible.
+
 ## 7. Validity safeguards
 
 - Sample tasks from real workflows using privacy-safe transformation.
@@ -133,3 +138,16 @@ A result is decision-ready only when the suite represents the intended deploymen
 the scoring process is validated, system and suite versions are pinned, repeated-trial uncertainty
 is reported, critical slices meet minimum thresholds, failures are inspectable, and another team
 can reproduce the run without privileged oral knowledge.
+
+## 10. Public claims and governance
+
+SystemBench results are scoped engineering evidence, not certifications. A public result should
+link an immutable system revision, suite version and fingerprint, budget/accounting manifests,
+benchmark card, system/model card, scenario dataset card, validation record, and complete safe-to-
+share report artifact. State sample counts, uncertainty, weak slices, deviations, and failed trials
+beside any headline result.
+
+Do not use a benchmark score alone to claim safety, fairness, compliance, human equivalence, or
+fitness for consequential deployment. Follow [VALIDATION_PROTOCOL.md](../VALIDATION_PROTOCOL.md)
+and [DEPLOYMENT_BOUNDARIES.md](../DEPLOYMENT_BOUNDARIES.md); record methodology changes under the
+change-control rules in [GOVERNANCE.md](../GOVERNANCE.md).
