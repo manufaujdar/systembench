@@ -1,8 +1,9 @@
 # SystemBench
 
-SystemBench is a benchmark framework for evaluating **complete AI systems**, not isolated
-model responses. It treats prompts, models, retrieval, tools, policies, orchestration,
-fallbacks, infrastructure, and operators as one system whose behavior must be measured.
+SystemBench is a reproducible evaluation framework for **complete AI systems**,
+including clinical-AI research systems, rather than isolated model responses. It
+treats prompts, models, retrieval, tools, policies, orchestration, fallbacks,
+infrastructure, and operators as one system whose behavior must be measured.
 
 The framework is deliberately provider-neutral and dependency-light. It includes a
 runnable offline example, repeat trials, structured traces, composable evaluators, aggregate
