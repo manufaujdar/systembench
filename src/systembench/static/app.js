@@ -83,6 +83,10 @@ function renderProbes(probes) {
     item.className = "probe-summary";
     const button = document.createElement("button");
     button.type = "button";
+    const detailId = `probe-detail-${index + 1}`;
+    const buttonId = `probe-toggle-${index + 1}`;
+    button.id = buttonId;
+    button.setAttribute("aria-controls", detailId);
     button.setAttribute("aria-expanded", "false");
     const number = document.createElement("span");
     number.textContent = String(index + 1).padStart(2, "0");
@@ -92,6 +96,9 @@ function renderProbes(probes) {
     dimension.textContent = probe.dimension;
     button.append(number, title, dimension);
     const detail = document.createElement("div");
+    detail.id = detailId;
+    detail.setAttribute("role", "region");
+    detail.setAttribute("aria-labelledby", buttonId);
     detail.className = "probe-detail";
     detail.hidden = true;
     const success = document.createElement("p");
