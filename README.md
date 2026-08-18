@@ -1,12 +1,8 @@
 # SystemBench
 
-SystemBench is a benchmark framework for evaluating **complete AI systems**, not isolated
-model responses. It treats prompts, models, retrieval, tools, policies, orchestration,
-fallbacks, infrastructure, and operators as one system whose behavior must be measured.
+AI systems often fail in the seams between models, tools, policies, retrieval, infrastructure, and people. SystemBench evaluates the complete workflow rather than one model response. It runs repeatable offline trials, preserves structured traces, and reports where routing, tool use, provenance, safety, latency, operability, or task success break.
 
-The framework is deliberately provider-neutral and dependency-light. It includes a
-runnable offline example, repeat trials, structured traces, composable evaluators, aggregate
-reliability metrics, JSON reports, and tests.
+The framework is deliberately provider-neutral and dependency-light. It includes a runnable offline example, repeat trials, structured traces, composable evaluators, aggregate reliability metrics, JSON reports, and tests.
 
 Run `systembench-web` after installation and open `http://127.0.0.1:8765` for the adaptive
 evaluation workbench. It critiques proposed benchmarks for LLMs, agents, frameworks, harnesses,
