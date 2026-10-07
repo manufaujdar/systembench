@@ -108,3 +108,5 @@ footer { display: flex; justify-content: space-between; gap: 2rem; border-top: 1
 }
 @media (max-width: 420px) { h1 { font-size: 3.35rem; }.header-inner, main > section, footer { width: min(100% - 1.25rem, 1180px); }.local-state { display: none; }.hero-model { transform: scale(.68); margin-block: -2rem; }.form-actions .button, .result-actions .button { width: 100%; }.metric-row { grid-template-columns: 1fr; }.metric-row div { border-right: 0; border-bottom: 1px solid var(--line); }.metric-row div:nth-child(2) { border-bottom: 1px solid var(--line); }.metric-row div:last-child { border-bottom: 0; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+html{scroll-padding-top:6rem}.panel,.probe-card{min-width:0}.probe-card dd,.history-record>*{overflow-wrap:anywhere}.probe-summary button{min-height:44px}

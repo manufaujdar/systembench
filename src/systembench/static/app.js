@@ -183,13 +183,11 @@ byId("copy-analysis").addEventListener("click", async () => {
 });
 
 function showProbe(probe) {
+  byId("record-observation").disabled = !probe;
   if (!probe) {
-    const title = document.createElement("h3");
-    title.textContent = "Planned probes complete";
-    const note = document.createElement("p");
-    note.textContent = "Export the session and conduct an independent validity review before drawing a conclusion.";
-    byId("current-probe").replaceChildren(title, note);
-    byId("record-observation").disabled = true;
+    byId("probe-title").textContent = "Planned probes complete";
+    byId("probe-goal").textContent = "Conduct an independent validity review before drawing a conclusion.";
+    for (const id of ["dimension", "id", "setup", "perturbation", "success", "failure", "evidence"]) byId(`probe-${id}`).textContent = "—";
     return;
   }
   byId("probe-dimension").textContent = probe.dimension;
@@ -261,6 +259,7 @@ byId("observation-form").addEventListener("submit", async (event) => {
     byId("session-status").textContent = `Unable to record: ${error.message}`;
   } finally {
     setBusy(button, false, "Adapting…", "Record and adapt");
+    button.disabled = !currentSession?.current_probe;
   }
 });
 
