@@ -32,3 +32,17 @@
   manifests and cards, approves practical regression tolerances, independently
   audits validity, replaces template probes with representative approved scenarios,
   and decides whether to release the post-0.1.1 workbench changes.
+
+## Audit implementation — 11 October 2026
+
+- Task: Respect reduced motion during result navigation; user authorized implementation and Git push from the portfolio UX/settings audit.
+- Scope/files: src/systembench/static/app.js.
+- Result: Analysis/session navigation uses existing native/CSS motion behavior. Protocols, fingerprints, rubrics, thresholds, seeds and session lifecycle unchanged.
+- Verification: 7 focused web tests; actual-source reduced-motion browser assertion; Ruff and JS syntax/diff check pass.
+- Source state: separate clean checkout from the verified current GitHub branch; original dirty checkout preserved. No dirty baseline incorporated.
+- Active gear: Review/QA to authorized Git publication; one mutating UI owner and independent root review.
+- Limits/next owner: app owner for physical-device, screen-reader and other-browser checks. No provider runs, real data, deployment or model/clinical release. Existing governed release gates remain.
+
+## Main integration — 11 October 2026
+
+Task-only UX/settings changes adapted to current main, retaining its backend and existing history. User authorized main publication. Validation and remote receipt are recorded in the portfolio task; no deployment/provider or regulated release is claimed.
