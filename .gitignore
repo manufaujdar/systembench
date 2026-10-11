@@ -11,3 +11,6 @@ build/
 *.egg-info/
 runs/
 .env
+
+# Local engineering-tool dependencies
+tools/docs-tools/node_modules/
