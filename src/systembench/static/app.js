@@ -128,7 +128,7 @@ function renderAnalysis(analysis) {
   byId("statistical-plan").textContent = analysis.statistical_plan;
   byId("protocol-fingerprint").textContent = analysis.protocol_fingerprint;
   byId("analysis-results").hidden = false;
-  byId("analysis-results").scrollIntoView({ behavior: "smooth", block: "start" });
+  byId("analysis-results").scrollIntoView({ block: "start" });
 }
 
 byId("design-form").addEventListener("submit", async (event) => {
@@ -228,7 +228,7 @@ byId("start-session").addEventListener("click", async () => {
     const session = await request("/api/session/start", designPayload());
     renderSession(session);
     byId("session").hidden = false;
-    byId("session").scrollIntoView({ behavior: "smooth", block: "start" });
+    byId("session").scrollIntoView({ block: "start" });
   } catch (error) {
     byId("form-status").textContent = `Unable to start session: ${error.message}`;
   }
