@@ -8,6 +8,7 @@ mypy src tests
 python -m compileall -q src tests tools
 python tools/repository_agent/repository_agent.py audit --json
 python -m unittest discover -s tools -p 'test_*.py'
+python -m pip check
 python -m pip_audit --local
 python scripts/browser_regressions.py
 python scripts/engineering_checks.py "$@"
