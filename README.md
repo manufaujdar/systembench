@@ -1,5 +1,8 @@
 # SystemBench
 
+[Documentation index](docs/DOCUMENTATION_INDEX.md) ·
+[Methodology](docs/DESIGN.md) · [Engineering checks](TOOLING.md)
+
 AI systems often fail in the seams between models, tools, policies, retrieval, infrastructure, and people. SystemBench evaluates the complete workflow rather than one model response. It runs repeatable offline trials, preserves structured traces, and reports where routing, tool use, provenance, safety, latency, operability, or task success break.
 
 The framework is deliberately provider-neutral and dependency-light. It includes a runnable offline example, repeat trials, structured traces, composable evaluators, aggregate reliability metrics, JSON reports, and tests.
